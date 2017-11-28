@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Curso BootStrap</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+    </style>
+  </head>
+
+  <body>
+          <div class="jumbotron jumbotron-fluid text-center">
+        <div class="container">
+          <h2 class="display-2">Projetos INPE</h2>
+          <h4 class="display-2">Atualizar / Excluir Projetos</h4>
+        
+        </div>
+      </div>
+    <div class="container">
+
+      <form>
+
+        <div class="form-group col-md-2">
+          <label for="buscaCod">Busca Projeto por Id</label>
+          <input type="text" class="form-control" id="buscaCod" placeholder="Codigo">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-success">Buscar Projeto</button>
+        <br>
+        <br>
+        <br>
+
+        <div class="form-group col-md-2">
+          <label for="codigo">Codigo</label>
+          <input type="text" class="form-control" id="codigo" placeholder="Codigo">
+        </div>
+
+        <div class="form-group col-md-10">
+          <label for="nomeProj">Nome do Projeto</label>
+          <input type="text" class="form-control" id="nomeProj" placeholder="Nome do Projeto">
+        </div>
+       
+        <div class="form-group  col-md-4">
+               <label for="tiposDeProj">Tipo do Projeto</label>
+                <select id="tipo" class="input-large form-control">
+                    <option value="" selected="selected">Escolha o Tipo</option>
+                    <option value="tipo1">Doutorado</option>
+                    <option value="tipo2">Projeto Pós-Doc</option>
+                    <option value="tipo3">Pesquisa</option>
+                    <option value="tipo4">Projeto Bolsa</option>
+                    <option value="tipo5">Projeto Jovem Pesquisador</option>
+                    <option value="tipo6">Extensão</option>
+                   
+                </select>
+                
+        </div>
+                <div class="form-group  col-md-5">
+               <label for="eixosDeProj">Eixos do Projeto</label>
+                <select id="tipo" class="input-large form-control">
+                    <option value="" selected="selected">Escolha o Tipo</option>
+                    <option value="eixo1">SISTEMAS DE OBSERVAÇÃO</option>
+                    <option value="eixo2">MODELAGEM E PROJEÇÕES</option>
+                    <option value="eixo3">DIAGNÓSTICOS E CENÁRIOS</option>
+                    <option value="eixo4">SISTEMAS DE OBSERVAÇÃO; MODELAGEM E PROJEÇÕES</option>
+                    <option value="eixo5">MODELAGEM E PROJEÇÕES; DIAGNÓSTICOS E CENÁRIOS</option>
+                    <option value="eixo6">SISTEMAS DE OBSERVAÇÃO; DIAGNÓSTICOS E CENÁRIOS</option>
+                    <option value="eixo7">SISTEMAS DE OBSERVAÇÃO; MODELAGEM E PROJEÇÕES;  DIAGNÓSTICOS E CENÁRIOS</option>
+                </select>
+                
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="fonteDeRecuros">Fontes de Recuros</label>
+          <input type="text" class="form-control" id="fonteDeRecuros" placeholder="Fontes de Recuros">
+        </div>
+
+
+        <div class="form-group col-md-6">
+          <label for="nomeColab">Colaborador</label>
+          <input type="text" class="form-control" id="nomeColab" placeholder="Colaborador">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="nomeCoord">Coordenador</label>
+          <input type="text" class="form-control" id="nomeCoord" placeholder="Coordenador">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="anoInicio">Ano de Inicio</label>
+          <input type="text" class="form-control" id="anoInicio" placeholder="Ano de Inicio">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="anoFinal">Ano Conclusão</label>
+          <input type="text" class="form-control" id="anoFinal" placeholder="Ano de Conclusão">
+        </div>
+        <div class="form-group col-md-12">
+          <label for="descricao">Descrição</label>
+          <input type="text" class="form-control" id="descricao" placeholder="Descrição">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary ">Atualizar Projeto</button>
+      
+        <button type="submit" class="btn btn-danger ">Excluir Projeto</button>
+
+
+      </form>
+       <script src="js/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquary/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+  </body>
+</html>>

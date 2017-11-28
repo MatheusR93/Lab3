@@ -1,0 +1,376 @@
+<!-- 
+<html>
+	<head>
+
+		    <meta charset="utf-8">
+    <title>Projeto INPE</title>
+	<script src="js/jquery.js"></script>
+	<link href="css/bootstrap.min.css" rel=stylesheet>
+	
+	
+	
+	</head>
+	<style>
+	    * {
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+	.conteudo{
+		width: 100vw;
+		height: 100vw;
+		background-color:#dce9f5 ;
+		font-family: Arial;
+	}
+	.conteudo > .header{
+		width:100vw;
+		height:60px;
+		background-color: #0a518f;
+		display:flex;
+		flex-direction: row;
+		justify-content:center;
+		align-items: center;
+		color:#fff;
+	}
+	.conteudo > .header2{
+		width:100vw;
+		height:60px;
+		background-color: #dce9f5;
+		display:flex;
+		flex-direction: row;
+	  	justify-content:center;
+		align-items: center;
+		color:black;
+	}
+
+	</style>
+		
+	<body>
+	<main class ="conteudo">
+		<header class="header">
+			<h1>INPE</h1>
+		</header>
+		<header class="header2">
+			<h4>Projetos</h4>
+		</header>
+		<div id="painelBusca">
+            
+		
+		
+            <div class="form-group  col-md-6">
+               
+                <select id="projetos" class="input-large form-control">
+                    <option value="" selected="selected">Escolha o projeto</option>
+                    <option value="pj1">Governança dos Recursos Hídricos e Participação Pública: Explorando Possibilidades de Gestão Integrada e Adaptativa na Região Metropolitana do Vale do Paraíba em Cenário de Mudança Ambiental.</option>
+                    <option value="pj2">Projeto 2</option>
+                    <option value="pj3">Projeto 3</option>
+                   
+                </select>
+                
+            </div>
+		
+		
+		</div>
+		<!--<div class = -->
+		<!-- 
+		<div class ="form-group col-md-7">
+		<span class="input-group-btn">
+        <button id="busca" class="btn btn-primary col-md-offset-8">Buscar</button>
+       	</span>
+       	
+		<span class="input-group-btn">
+		<button id="busca2" class="btn btn-primary col-md-offset-10">Buscar Todos</button></div> 
+        </span>
+		
+		<button type="button" class="btn btn-primary add-task" onclick="Nova();">Adicionar Projeto</button>
+		<table class="table table-bordered"> 
+			<caption>Dados</caption>
+				<thead>
+					<tr> 
+						<th>Nome</th>
+						<th>Descrição</th> 
+						 <th>Abrangencia</th>
+						<th>Coordenador</th> 
+					</tr> 
+				</thead> 
+				
+				<tbody id="dadosProjeto"> 
+				
+				
+				
+					
+				</tbody> 
+		</table>
+	</main>
+	<script>
+		$(document).ready(function(){
+			
+
+			$("#busca").click(function() {
+
+				var projeto = $( "#projetos option:selected" ).text();
+				//alert(projeto);
+				
+				
+				$("#dadosProjeto").empty();
+					
+				var url = "/projeto/nome/"+projeto;
+					
+
+				$.getJSON(url, function(data) {
+						
+						var itens = [];
+						
+						itens.push("<tr> <td>"+ data.nome +"</td><td>"+ data.fonteRecurso + "</td><td>"+ data.abrangencia.cidade + "</td><td>"+ data.colaborador.nome + "</td></tr>")
+							//<td>"+ this.espc.marca + "</td><td>"+ this.espc.cor + "</td></tr>");
+									
+						$("#dadosProjeto").append(itens);
+						
+				});
+
+			});
+		
+			$("#busca2").click(function() {
+
+				var projeto = $( "#projetos option:selected" ).text();
+				//alert(projeto);
+				
+				
+				$("#dadosProjeto").empty();
+					
+				var url = "/projeto";
+					
+
+				$.getJSON(url, function(data) {
+						
+						var itens = [];
+						
+						$.each(data, function(i){
+						
+							itens.push("<tr> <td>"+ this.nome +"</td><td>"+ this.fonteRecurso + "</td><td>"+ this.abrangencia.cidade + "</td><td>"+ this.coloborador.nome + "</td></tr>")
+							//<td>"+ this.espc.marca + "</td><td>"+ this.espc.cor + "</td></tr>");
+							
+						});
+									
+						$("#dadosProjeto").append(itens);
+						
+				});
+
+			});
+
+
+		});
+		function Nova() {
+	        window.location.href = 'Add.html';
+			}
+	</script>
+	<script>
+		var button = document.getElementsByClassName('button');
+		var input = document.getElementsByClassName('input');
+		button[0].onclick = function() {
+			adiciona(input[0].value);
+			
+		}
+		function adiciona(valor){
+			var lista = document.getElementById('lista');
+			lista.innerHTML = lista.innerHTML + "<p>" + input[0].value + "</p>";
+		}
+	</script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquary/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	</body>
+	
+	
+</html>
+ -->
+ 
+ 
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Curso BootStrap</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+    </style>
+  </head>
+
+  <body>
+
+      <div class="jumbotron jumbotron-fluid text-center">
+        <div class="container">
+          <h1 class="display-3">Projetos INPE</h1>
+          <p class="lead">Projetos de pesquisa de toda instituição INPE.</p>
+        </div>
+      </div>
+    <div class="container">
+      <form>
+
+        <div class="form-group col-md-4">
+          <label for="buscaCod ">Busca Projeto por Codigo</label>
+          <input type="text" class="form-control" id="buscaCod" placeholder="Codigo">
+        </div>
+        <br>
+        <button id="busca" type="button" class="btn btn-primary">Buscar Projeto</button>
+        <button id="busca2" type="button" class="btn btn-primary">Buscar Todos Projeto</button>
+        <button type="button" class="btn btn-info add-task" onclick="Add();">Adicionar Projetos</button>
+      
+        <button type="button" class="btn btn-warning add-task" onclick="AltDel();" ">Alterar / Excluir Projeto</button>
+        <br>
+        <br>
+      <table class="table table-striped">
+        <caption>Dados do Projetos</caption>
+        <thead>
+          <tr> 
+          	<th>Codigo</th>
+            <th>Nome</th>
+           
+             
+            <th>Coordenador</th> 
+            <th>Abrangencia</th>
+             <th>Descrição</th> 
+          </tr> 
+        </thead> 
+        
+        <tbody id="dadosProjeto"> 
+        
+        
+        
+          
+        </tbody> 
+      </table>
+        <br>
+
+      </form>
+
+
+
+       <script src="js/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquary/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+    <script src="js/angular.min.js"></script>
+    <script>
+      function Add() {
+        window.location.href = 'addProjetos.html';
+      }
+      function AltDel() {
+        window.location.href = 'altDelProjetos.html';
+      }
+    </script>
+    <script>
+		$(document).ready(function(){
+			
+
+			$("#busca").click(function() {
+
+				var projeto = $( "#projetos option:selected" ).text();
+				//alert(projeto);
+				
+				
+				$("#dadosProjeto").empty();
+					
+				var url = "/projeto/nome/"+projeto;
+					
+
+				$.getJSON(url, function(data) {
+						
+						var itens = [];
+						
+						itens.push("<tr> <td>"+ data.nome +"</td><td>"+ data.fonteRecurso + "</td><td>"+ data.abrangencia.cidade + "</td><td>"+ data.colaborador.nome + "</td></tr>")
+							//<td>"+ this.espc.marca + "</td><td>"+ this.espc.cor + "</td></tr>");
+									
+						$("#dadosProjeto").append(itens);
+						
+				});
+
+			});
+		
+			$("#busca2").click(function() {
+
+				var projeto = $( "#projetos option:selected" ).text();
+				//alert(projeto);
+				
+				
+				$("#dadosProjeto").empty();
+					
+				var url = "/projeto";
+					
+
+				$.getJSON(url, function(data) {
+						
+						var itens = [];
+						
+						$.each(data, function(i){
+						
+							itens.push("<tr> <td>"+ this.nome +"</td><td>"+ this.fonteRecurso + "</td><td>"+ this.abrangencia.cidade + "</td><td>"+ this.coloborador.nome + "</td></tr>")
+							//<td>"+ this.espc.marca + "</td><td>"+ this.espc.cor + "</td></tr>");
+							
+						});
+									
+						$("#dadosProjeto").append(itens);
+						
+				});
+
+			});
+
+
+		});
+		function Nova() {
+	        window.location.href = 'Add.html';
+			}
+	</script>
+	<script>
+		var button = document.getElementsByClassName('button');
+		var input = document.getElementsByClassName('input');
+		button[0].onclick = function() {
+			adiciona(input[0].value);
+			
+		}
+		function adiciona(valor){
+			var lista = document.getElementById('lista');
+			lista.innerHTML = lista.innerHTML + "<p>" + input[0].value + "</p>";
+		}
+	</script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquary/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

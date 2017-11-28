@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Gerenciamento de Projetos</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+    </style>
+  </head>
+
+  <body>
+    
+    <script>
+        $(document).ready(function(){
+      
+            $("#add").click(function() {
+              
+                var codigo = $('#codigo').val();
+                var segmento = $('#segmento').val();
+                var titulo = $('#titulo').val();
+                var eixos = $('#eixos').val();
+                var fonteRecurso = $('#fonteRecurso').val();
+                var inicio = $('#inicio').val();
+                var termino = $('#termino').val();
+                var cidade = $('#cidade').val();
+                
+                var url = "/addProjetos/"+codigo+"/"+segmento+"/"+titulo+"/"+eixos+"/"+fonteRecurso+"/"+inicio+"/"+termino+"/"+cidade;
+
+                $.getJSON(url,function(data));
+               
+            });
+        });
+    </script>
+
+
+
+
+
+    <div class="jumbotron jumbotron-fluid text-center">
+      <div class="container">
+        <h2 class="display-2">Projetos INPE</h2>
+        <h4 class="display-2">Adicionar Projetos</h4>
+        
+      </div>
+    </div>
+
+    <div class="container">
+ 
+      <form>
+
+        <div class="form-group col-md-10">
+          <label for="codigo">Codigo do Projeto</label>
+          <input type="text" class="form-control" id="codigo" placeholder="Codigo do Projeto">
+        </div>
+
+        <div class="form-group col-md-10">
+          <label for="titulo">Titulo do Projeto</label>
+          <input type="text" class="form-control" id="titulo" placeholder="Nome do Projeto">
+        </div>
+       
+        <div class="form-group  col-md-4">
+               <label for="tiposDeProj">Segmento do Projeto</label>
+                <select id="segmento" class="input-large form-control">
+                    <option value="" selected="selected">Escolha o Tipo</option>
+                    <option value="tipo1">Doutorado</option>
+                    <option value="tipo2">Projeto Pós-Doc</option>
+                    <option value="tipo3">Pesquisa</option>
+                    <option value="tipo4">Projeto Bolsa</option>
+                    <option value="tipo5">Projeto Jovem Pesquisador</option>
+                    <option value="tipo6">Extensão</option>
+                   
+                </select>
+                
+        </div>
+                <div class="form-group  col-md-5">
+               <label for="eixosDeProj">Eixos do Projeto</label>
+                <select id="eixos" class="input-large form-control">
+                    <option value="" selected="selected">Escolha o Tipo</option>
+                    <option value="eixo1">SISTEMAS DE OBSERVAÇÃO</option>
+                    <option value="eixo2">MODELAGEM E PROJEÇÕES</option>
+                    <option value="eixo3">DIAGNÓSTICOS E CENÁRIOS</option>
+                    <option value="eixo4">SISTEMAS DE OBSERVAÇÃO; MODELAGEM E PROJEÇÕES</option>
+                    <option value="eixo5">MODELAGEM E PROJEÇÕES; DIAGNÓSTICOS E CENÁRIOS</option>
+                    <option value="eixo6">SISTEMAS DE OBSERVAÇÃO; DIAGNÓSTICOS E CENÁRIOS</option>
+                    <option value="eixo7">SISTEMAS DE OBSERVAÇÃO; MODELAGEM E PROJEÇÕES;  DIAGNÓSTICOS E CENÁRIOS</option>
+                </select>
+                
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="fonteDeRecuros">Fontes de Recuros</label>
+          <input type="text" class="form-control" id="fonteDeRecuros" placeholder="Fontes de Recuros">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="anoInicio">Ano de Inicio</label>
+          <input type="text" class="form-control" id="inicio" placeholder="Ano de Inicio">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="anoFinal">Ano Conclusão</label>
+          <input type="text" class="form-control" id="final" placeholder="Ano de Conclusão">
+        </div>
+        <div class="form-group col-md-12">
+          <label for="cidade">Cidade</label>
+          <input type="text" class="form-control" id="cidade" placeholder="cidade">
+        </div>
+        <br>
+          <button id= "add" type="submit" class="btn btn-success">Adicionar Projeto</button>
+          <button type="button" class="btn btn-info add-task" onclick="Voltar();">Voltar</button>
+
+      </form>
+      <script>
+      function Voltar() {
+        window.location.href = 'index.html';
+      }
+      </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquary/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+  </body>
+</html>

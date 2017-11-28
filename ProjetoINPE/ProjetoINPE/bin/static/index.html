@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Gerenciamento de Projetos</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+    </style>
+  </head>
+
+  <body>
+
+      <div class="jumbotron jumbotron-fluid text-center">
+        <div class="container">
+          <h1 class="display-3">Projetos INPE</h1>
+          <p class="lead">Projetos de pesquisa de toda instituição INPE.</p>
+        </div>
+      </div>
+    <div class="container">
+      <form>
+
+        <div class="form-group col-md-4">
+          <label for="buscaCod ">Busca Projeto por Codigo</label>
+          <input type="text" class="form-control" id="buscaCod" placeholder="Codigo">
+        </div>
+        <br>
+        <button id="busca" type="button" class="btn btn-primary">Buscar Projeto</button>
+        <button id="busca2" type="button" class="btn btn-primary">Buscar Todos Projeto</button>
+        <button type="button" class="btn btn-info add-task" onclick="Add();">Adicionar Projetos</button>
+      
+        <button type="button" class="btn btn-warning add-task" onclick="AltDel();">Alterar / Excluir Projeto</button>
+        <br>
+        <br>
+	      <table class="table table-striped">
+	        	<caption>Dados do Projetos</caption>
+	        		<thead>
+	          			<tr> 
+	          				<th>Codigo</th>
+	            			<th>Titulo</th>
+	            			<th>Segmento</th>
+	            			<th>Eixos</th>
+	            			<th>Fonte de Recurso</th>
+	            			<th>Cidade</th>
+	            			<th>Inicio</th>
+	            			<th>Termino</th>
+	          			</tr> 
+	        		</thead> 
+	        
+	        		<tbody id="dadosProjeto"> 
+	        
+	        		</tbody> 
+	      </table>
+	        <br>
+
+      </form>
+
+
+
+       <script src="js/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquary/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+    <script src="js/angular.min.js"></script>
+    <script>
+      function Add() {
+        window.location.href = 'addProjetos.html';
+      }
+      function AltDel() {
+        window.location.href = 'altDelProjetos.html';
+      }
+    </script>
+    <script>
+		$(document).ready(function(){
+			
+
+			$("#busca").click(function() {
+
+				var projeto = $( "#buscaCod" ).text();
+				//alert(projeto);
+				
+				
+				$("#dadosProjeto").empty();
+					
+				var url = "/projeto/codigo/"+projeto;
+					
+
+				$.getJSON(url, function(data) {
+						
+						var itens = [];
+						
+						$.each(data,function(i){
+
+							itens.push("<tr> <td>"+this.id +"<tr> <td>"+ this.titulo +"</td><td>"+ this.segmento+ "</td><td>"+ this.eixos+ "</td><td>"+ this.fonteRecurso + "</td><td>"+ this.cidade + "</td><td>"+ this.inicio + "</td></tr>" + this.termino + "</td><td>");
+						
+						});
+									
+						$("#dadosProjeto").append(itens);
+						
+				});
+
+			});
+		
+			$("#busca2").click(function() {
+				
+				
+				$("#dadosProjeto").empty();
+					
+				var url = "/projeto";
+					
+
+				$.getJSON(url, function(data) {
+						
+						var itens = [];
+						
+						$.each(data, function(i){
+						
+							itens.push("<tr> <td>"+this.id +"<tr> <td>"+ this.titulo +"</td><td>"+ this.segmento+ "</td><td>"+ this.eixos+ "</td><td>"+ this.fonteRecurso + "</td><td>"+ this.cidade + "</td><td>"+ this.inicio + "</td></tr>" + this.termino + "</td><td>");
+							
+						});
+									
+						$("#dadosProjeto").append(itens);
+						
+				});
+
+			});
+
+
+		});
+		function Nova() {
+	        window.location.href = 'Add.html';
+			}
+	</script>
+	<script>
+		var button = document.getElementsByClassName('button');
+		var input = document.getElementsByClassName('input');
+		button[0].onclick = function() {
+			adiciona(input[0].value);
+			
+		}
+		function adiciona(valor){
+			var lista = document.getElementById('lista');
+			lista.innerHTML = lista.innerHTML + "<p>" + input[0].value + "</p>";
+		}
+	</script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquary/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
